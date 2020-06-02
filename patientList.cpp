@@ -19,7 +19,11 @@ patientList::~patientList() {
 int patientList::size() {
     return _size;
 }
-
+void patientList::add(Patient* t){
+    t->setNext(head);
+    head = t;
+    _size++;	
+}
 void patientList::add(string name, string diagnosis, string departement, int days, string date) {
     Patient *temp = new Patient( name, diagnosis, departement, days, date);
     temp->setNext(head);
