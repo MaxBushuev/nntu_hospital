@@ -23,6 +23,7 @@ class Patient{
 			string getDepartment();
 			int getDays();
 			string getDate();
+			Patient* next();
 
             friend ostream& operator<< (ostream &out, Patient &patient);
             friend istream& operator>> (istream &in, Patient &patient);
