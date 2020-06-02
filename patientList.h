@@ -10,6 +10,7 @@ public:
     ~patientList();
     int size();
     void changed(int n);
+    void add(Patient* t);
     void add(string name, string diagnosis, string departement, int days, string date);
     void remove(int n);
     void printWhole();
