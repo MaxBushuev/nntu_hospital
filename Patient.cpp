@@ -52,6 +52,9 @@ int Patient::getDays(){
 }
 string Patient::getDate()(
 	return _date;
+}	
+Patient* Patient::next(){
+	return _next;	
 }
 ostream& operator<< (ostream &out, Patient &patient){
         out << "Name: " << patient._name << endl;
