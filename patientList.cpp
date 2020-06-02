@@ -30,7 +30,12 @@ void patientList::add(string name, string diagnosis, string departement, int day
     head = temp;  
     _size++;
 }
-
+void patientList::popHead(){
+    Patient* head = head->next();
+    delete head;
+    head = temp;
+    _size--
+}
 void patientList::printWhole(){
     setlocale(LC_ALL, "rus");
     Patient *temp = head;
