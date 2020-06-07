@@ -8,6 +8,13 @@ hospDepartment::hospDeparment(){
 	_maxPlaceNumber = 0;
 	_placeNumber = 0;
 }
+hospDepartment::hospDepartment(string name, int maxDoctors, int maxPlaceNumber){
+	_name = name;
+	_maxDoctors = maxDoctors;
+	_availableDoctors = maxDoctors;
+	_maxPlaceNumber = maxPlaceNumber;
+	_placeNumber = maxPlaceNumber;
+}
 string hospDepartment::getName(){
 	return _name;
 }
@@ -76,7 +83,7 @@ void hospDepartment::readFromFile(string file_patient, string file_in_hospital){
 void hospDepartment::writeToFile(string file_patient, string file_in_hospital){
 	ofstream patient;
 	ofstream in_hospital;
-	patient.open(file_
+	patient.open(file_);
 	Patient* t = _list.head;
 	while(t!=NULL){
 		patient << t->getName() << endl;

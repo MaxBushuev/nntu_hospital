@@ -1,5 +1,5 @@
 #define N 10
-
+#define M 7
 #include <string>
 #include "patientList.hpp"
 using namespace std;
@@ -14,6 +14,7 @@ class hospDepartment{
 		patientList _in_hospital;
 	public:
 		hospDepartment();
+		hospDepartment(string name, int maxDoctors, int maxPlaceNumbers);
 		string getName();	
 		int getMaxAvailableDoctors();
 		int getAvailableDoctors();
