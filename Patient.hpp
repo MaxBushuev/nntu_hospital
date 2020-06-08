@@ -10,12 +10,13 @@ class Patient{
 			Patient* _next;
         public:
 			Patient();
+			Patient(string name, string diagnosis, string department, int days, string date);
 			void setName(string name);
 			void setDiagnosis(string diagnosis);
 			void setDepartment(string department);
 			void setDays(int days);
 			void setDate(string date);
-			void setNext(Students* next);
+			void setNext(Patient* next);
 			void print();
 
 			string getName();
@@ -24,12 +25,4 @@ class Patient{
 			int getDays();
 			string getDate();
 			Patient* next();
-
-            friend ostream& operator<< (ostream &out, Patient &patient);
-            friend istream& operator>> (istream &in, Patient &patient);
-            friend ofstream& operator<< (ofstream &fout, Patient &patient);
-            friend ifstream& operator>> (ifstream &fin, Patient &patient);
 };
-
-
-

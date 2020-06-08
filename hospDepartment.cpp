@@ -1,47 +1,51 @@
 #include "hospDepartment.hpp"
 #include <fstream>
 using namespace std;
-hospDepartment::hospDeparment(){
+hospDepartment::hospDepartment(){
 	_name = "";
-	_maxDoctors = 0;
-	_availableDoctors = 0;
+	_doctors = 0;
 	_maxPlaceNumber = 0;
+	_canTake = 0;
 	_placeNumber = 0;
 }
-hospDepartment::hospDepartment(string name, int maxDoctors, int maxPlaceNumber){
+hospDepartment::hospDepartment(string name, int doctors, int placeNumber){
 	_name = name;
-	_maxDoctors = maxDoctors;
-	_availableDoctors = maxDoctors;
-	_maxPlaceNumber = maxPlaceNumber;
-	_placeNumber = maxPlaceNumber;
+	_doctors = doctors;
+	_placeNumber = placeNumber;
+	_canTake = _doctors * N;
 }
 string hospDepartment::getName(){
 	return _name;
 }
-int hospDepartment::getMaxAvailableDoctors(){
-	return _maxAvailableDoctors;
+int hospDepartment::getDoctors(){
+	return _doctors;
 }
-int hospDepartment::hospDepartment::getAvailableDoctors(){
-	return _availableDoctors;
-}
-void hospDepartment::setMaxAlailableDoctors(int maxAvailableDoctors){
-	_maxAvailableDoctors = maxAvailableDoctors;
-}
-int hospDepartment::getMaxPlaceNumber(){
-	return _maxPlaceNumber;
-}
-void hospDepartment::setMaxPlaceNumber(int maxPlaceNumber){
-	_maxPlaceNumber = maxPlaceNumber;
+void hospDepartment::setDoctors(int doctors){
+	_doctors = doctors;
 }
 int hospDepartment::getPlaceNumber(){
 	return _placeNumber;
 }
-void hospDepartment::setPlaceNumber(intPlaceNumber){
+void hospDepartment::setPlaceNumber(int placeNumber){
 	_placeNumber = placeNumber;
+}
+int hospDepartment::getCanTake(){
+	return _canTake;
+}
+void hospDepartment::setCanTake(int canTake){
+	_canTake = canTake;
+}
+void hospDepartment::add_list(Patient* temp){
+	_list.add(temp);
+	_canTake--;
+}
+void hospDepartment::add_in_hospital(Patient* temp){
+	_in_hospital.add(temp);
+	_placeNumber--;
 }
 void hospDepartment::readFromFile(string file_patient, string file_in_hospital){
 	ifstream patient;
-	ofstream in_hospital;
+	ifstream in_hospital;
 	patient.open(file_patient);
 	in_hospital.open(file_in_hospital);
 	int i_temp;
@@ -59,9 +63,11 @@ void hospDepartment::readFromFile(string file_patient, string file_in_hospital){
 		patient >> s_temp;
 		t->setDate(s_temp);
 
-		_list.add(t);
+		if(t->getDepartment() == _name)
+			_list.add(t);
 	}
-	_list.popHead();
+	if(_list.size()>=0)
+		_list.popHead();
 	patient.close();
 	while(!in_hospital.eof()){
 		in_hospital >> s_temp;
@@ -74,16 +80,21 @@ void hospDepartment::readFromFile(string file_patient, string file_in_hospital){
 		t->setDepartment(s_temp);
 		in_hospital >> s_temp;
 		t->setDate(s_temp);
-
-		_in_hospital.add(t);
+		
+		if(t->getDepartment() == _name){
+			_in_hospital.add(t);
+			_placeNumber--;
+		}
 	}
-	_in_hospital.popHead();
+	if(_in_hospital.size()>=0)
+		_in_hospital.popHead();
 	in_hospital.close();
 }
 void hospDepartment::writeToFile(string file_patient, string file_in_hospital){
 	ofstream patient;
 	ofstream in_hospital;
-	patient.open(file_);
+	patient.open(file_patient);
+	in_hospital.open(file_in_hospital);
 	Patient* t = _list.head;
 	while(t!=NULL){
 		patient << t->getName() << endl;
@@ -105,9 +116,17 @@ void hospDepartment::writeToFile(string file_patient, string file_in_hospital){
 	}
 	in_hospital.close();
 }
+void hospDepartment::search(string name, string diagnosis, string date){
+	_list.search(name, diagnosis, _name, 0, date);
+	_in_hospital.search(name, diagnosis, _name, M, date);
+}
 void hospDepartment::printList(){
 	_list.printWhole();
 }
 void hospDepartment::print_in_hospital(){
 	_in_hospital.printWhole();
+}
+void hospDepartment::discharm(int n){
+	_in_hospital.remove(n);
+	_placeNumber++;
 }

@@ -1,5 +1,5 @@
 #include "patientList.h"
-
+#include <iostream>
 
 using namespace std;
 
@@ -31,10 +31,10 @@ void patientList::add(string name, string diagnosis, string departement, int day
     _size++;
 }
 void patientList::popHead(){
-    Patient* head = head->next();
+    Patient* temp = head->next();
     delete head;
     head = temp;
-    _size--
+    _size--;
 }
 void patientList::printWhole(){
     setlocale(LC_ALL, "rus");
@@ -48,7 +48,7 @@ void patientList::printWhole(){
       cout << " Билет№" << i;
       cout << " ФИО: " << temp ->getName(); 
       cout << " |Диагноз: " + temp -> getDiagnosis();
-      cout << " |Отделение: " << temp -> getDepartement(); 
+      cout << " |Отделение: " << temp -> getDepartment(); 
       cout << " |Дней госпитализации: " + temp -> getDays();
       cout << " |Дата госпитализации: " + temp -> getDate() << endl;
       temp = temp -> next();
@@ -89,7 +89,7 @@ void patientList::search(string name, string diagnosis, string departement, int 
         while(temp != NULL){
            string name1 = temp-> getName();
            string diagnosis1 = temp -> getDiagnosis();
-           string departement1 = temp -> getDepartement();
+           string departement1 = temp -> getDepartment();
            int days1 = temp -> getDays();
            string date1 = temp -> getDate();
             if(days == days1 || name1 == name || diagnosis == diagnosis1 || date == date1 ){
@@ -133,7 +133,7 @@ void patientList::search(string name, string diagnosis, string departement, int 
 
         temp -> setName(name);
         temp -> setDiagnosis(diagnosis);
-        temp -> setDepartement(departement);
+        temp -> setDepartment(departement);
         temp -> setDays(days);
         temp -> setDate(date);
         } 

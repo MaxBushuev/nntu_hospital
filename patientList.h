@@ -1,11 +1,13 @@
 #ifndef PATIENTLIST_H
 #define PATIENTLIST_H
-#include "patient.h"
+#include "Patient.hpp"
 
 using namespace std;
 
 class patientList {
 public:
+    Patient* head;
+
     patientList();
     ~patientList();
     int size();
@@ -18,7 +20,6 @@ public:
     void search(string name, string diagnosis, string departement, int days, string date);
 
 private:
-    Patient *head;
     int _size;
 };
 
