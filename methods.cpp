@@ -10,36 +10,36 @@ void search(patientList list){
 	    string departament;
         string diagnosis;
         string date;
-    	cout << "1.Поиск по дням госпитализации" << endl;
-		cout << "2.Поиск по дате госпитализации" << endl;
-		cout << "3.Поиск по ФИО" << endl;
-		cout << "4.Поиск по отделению" << endl;
-		cout << "5.Поиск по диагнозу" << endl;
+    	cout << "1.Search by hospital days" << endl;
+		cout << "2.Search by date of hospitalization" << endl;
+		cout << "3.Search by full name" << endl;
+		cout << "4.Search by Department" << endl;
+		cout << "5.Search by diagnosis" << endl;
 		cout << ">";
 		int variant = getVariant(5);
 		switch(variant){
 		case 1:
-			cout << "Введите кол-во дней госиптлизации: ";
+			cout << "Enter the number of days of hospitalization: ";
 			days = getVariant();
 			list.search("","","",days,"");
 			break;
 		case 2:
-			cout << "Введите дату госпитализации: ";
+			cout << "Enter the date of hospitalization: ";
 			cin >> date;
 			list.search("","","",-1, date);
 			break;
 		case 3:
-			cout << "Введите ФИО: ";
+			cout << "Enter your full name: ";
 			cin >> name;
 			list.search(name,"","",-1,"");
 			break;
 		case 4:
-			cout << "Введите название отделения ";
+			cout << "Enter the branch name ";
 			cin >> departament;
 			list.search("","",departament,-1,"");
 			break;
 		case 5:
-			cout << "Введите диагноз: ";
+			cout << "Enter a diagnosis: ";
 			cin >> diagnosis;
 			list.search("",diagnosis,"",-1,"");
 			break;
