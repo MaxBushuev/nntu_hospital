@@ -4,7 +4,67 @@
 #include <fstream>
 
 using namespace std;
+
+/**
+ * @file main.cpp
+ * @brief Основной метод
+ *
+ * В основном методе вызывается меню.
+ * Меню содержит 9 пунктов:
+ * - 1.Add new patient
+ * - 2.Search for a patient
+ * - 3.Discharm a patient
+ * - 4.Change number of doctors in department
+ * - 5.Print, how many patients can we take today
+ * - 6.Print patients by day
+ * - 7.Print patients in hospital
+ * - 8.Write to files
+ * - 9.Exit
+ * 
+ * Пользователь вводит нужный ему номер пункта.
+ * Затем этот номер попадает в оператор switch и выполняется фунция соответсвующая этому номеру.
+ * @code
+ * switch(action){
+ * 		case 1:
+ * 			...
+ * 		break;
+ * 		case 2:
+ * 			...
+ * 		break;
+ * 		.....
+ * 		case 9:
+ * 			...
+ * 		break;
+ * }
+ * @endcode
+ * 
+ * Так повторяется, пока пользователь не введет 9.
+ * 
+ * @param curDate Сеогдняшняя дата
+ * @param flag False, когда пользователь решает выйти
+ * @param surgery Хирургическое отделение
+ * @param infection Инцфекционное отделение
+ * @param cardio Кардиологическое отделение
+ * @param action Номер нужного пункта меню
+ * @param s_temp Введенная строка пользателем для дальнейшего использования
+ * @param i_temp Введенное число пользателем для дальнейшего использования
+ * @param temp Переменная типа Patient
+ */
+
+
+/**
+ * Проверка на правильность введеных аргументов:
+ * @code
+ * if(argc != 2){
+		cout << "Incorrect number of arguments" << endl;
+		return -1;
+	}
+ * @endcode
+ */
+
+
 int main(int argc, char* argv[]){
+
 	if(argc != 2){
 		cout << "Incorrect number of arguments" << endl;
 		return -1;
