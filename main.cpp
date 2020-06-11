@@ -55,7 +55,7 @@ using namespace std;
 /**
  * Проверка на правильность введеных аргументов:
  * @code
- * if(argc != 2){
+ * if(argc != 3){
 		cout << "Incorrect number of arguments" << endl;
 		return -1;
 	}
@@ -65,7 +65,7 @@ using namespace std;
 
 int main(int argc, char* argv[]){
 
-	if(argc != 2){
+	if(argc != 3){
 		cout << "Incorrect number of arguments" << endl;
 		return -1;
 	}
