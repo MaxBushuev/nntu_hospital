@@ -4,7 +4,6 @@
 using namespace std;
 
 /**
- * @file Patient.txt
  * @brief Реализация класса Patient
  *  
  * @param name ФИО пациента
