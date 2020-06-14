@@ -15,7 +15,7 @@ using namespace std;
  * @param temp Переменная типа Patient 
  * @param file_in_hospital Файл для хранения списка пациентов в отделении  
  * @param file_patient Файл для хранения общего списка пациентов
- * @param
+ * 
  */ 
 
 

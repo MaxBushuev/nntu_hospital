@@ -6,7 +6,29 @@
 using namespace std;
 
 /**
+ * @mainpage 
+ * В этой документации описан код, позволяющий работать с данными больницы. \n
+ * Реализовано 3 класса:
+ * - Patient - класс Пациент(данные об одном пациенте)
+ * - patientList - общий список пациентов в больнице
+ * - hospDepartment - список пациентов в каком-либо отделении
+ * 
+ * В классе main.cpp находится основной метод и меню, по которому пользователь
+ * сможет выбирать нужное ему действие. \n 
+ * Меню:
+ * - 1.Add new patient
+ * - 2.Search for a patient
+ * - 3.Discharm a patient
+ * - 4.Change number of doctors in department
+ * - 5.Print, how many patients can we take today
+ * - 6.Print patients by day
+ * - 7.Print patients in hospital
+ * - 8.Write to files
+ * - 9.Exit
+ * 
+ * 
  * @file main.cpp
+ * @include main.cpp
  * @brief Основной метод
  *
  * В основном методе вызывается меню.

@@ -4,7 +4,6 @@
 using namespace std;
 
 /**
- * @file patientList.cpp
  * @brief Реализация списка пациентов
  * 
  * @param name ФИО пациента
